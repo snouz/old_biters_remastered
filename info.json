@@ -1,0 +1,13 @@
+{
+  "name": "old_biters_remastered",
+  "version": "1.0.0",
+  "title": "Old Biters Remastered",
+  "author": "snouz",
+  "homepage": "https://github.com/snouz/old-biters-remastered",
+  "factorio_version": "2.0",
+  "description": "Second tier substation.",
+  "dependencies": [
+    "base",
+    "? space-age"
+  ]
+}
