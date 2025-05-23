@@ -21,8 +21,12 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 
 --local old_biter_spawner_tint = {r=1.0, g=1.0, b=1.0, a=1/2}
 --local old_spitter_spawner_tint = {r=0.99, g=0.09, b=0.09, a=1/2}
-local old_biter_spawner_tint = {0.92, 0.54, 0, 0.5}
-local old_spitter_spawner_tint = {0.99, 0.09, 0.09, 1}
+--local old_biter_spawner_tint = {0.92, 0.54, 0, 0.5}
+--local old_spitter_spawner_tint = {0.99, 0.09, 0.09, 1}
+
+
+local old_biter_spawner_tint = {0.3, 0, 0, 0.5}
+local old_spitter_spawner_tint = {0.3, 0, 0, 1}
 
 local old_small_worm_scale = 0.325
 local old_medium_worm_scale = 0.415
