@@ -55,14 +55,14 @@ local old_behemoth_biter_scale = 0.6
 --local old_big_biter_tint2 = {r=0.31, g=0.61, b=0.95, a=0.85/2}
 --local old_behemoth_biter_tint1 = {r=0.3, g=0.9, b=0.3, a=0.75/2}
 --local old_behemoth_biter_tint2 = {r=0.88, g=0.24, b=0.24, a=0.9/2}
-local old_small_biter_tint1 = {0.70, 0.68, 0.61, 0.5}
-local old_small_biter_tint2 = {0.62, 0.55, 0.2, 0.7}
-local old_medium_biter_tint1 = {0.59, 0.56, 0.61, 0.7}
-local old_medium_biter_tint2 = {0.6, 0.36, 0.36, 0.7}
-local old_big_biter_tint1 = {0.47, 0.50, 0.82, 0.8}
-local old_big_biter_tint2 = {0.15, 0.55, 0.5, 0.7}
-local old_behemoth_biter_tint1 = {0.3, 0.35, 0.3, 0.9}
-local old_behemoth_biter_tint2 = {0.45, 0.82, 0.1, 0.7}
+local old_small_biter_tint1 = {0.5, 0.5, 0.5, 0.5}--{0.70, 0.68, 0.61, 0.5}
+local old_small_biter_tint2 = {0.62, 0.55, 0.2, 0.8}
+local old_medium_biter_tint1 = {0.59, 0.56, 0.61, 0.5}
+local old_medium_biter_tint2 = {0.6, 0.36, 0.36, 0.8}
+local old_big_biter_tint1 = {0.47, 0.50, 0.82, 0.5}
+local old_big_biter_tint2 = {0.15, 0.55, 0.5, 0.8}
+local old_behemoth_biter_tint1 = {0.3, 0.35, 0.3, 0.5}
+local old_behemoth_biter_tint2 = {0.45, 0.82, 0.1, 0.8}
 
 local old_small_spitter_scale = 0.25
 local old_medium_spitter_scale = 0.35
@@ -129,7 +129,6 @@ local function old_worm_corpse(name, scale, tint, order_char)
   tab.type = "corpse"
   tab.name = name .. "-worm-corpse"
   tab.icon = modgraphics .. "/icons/" .. name .. "-worm-corpse.png"
-  --tab.icon = "__base__/graphics/icons/stone-furnace.png"
   tab.selection_box = {{-0.8, -0.8}, {0.8, 0.8}}
   tab.selectable_in_game = false
   tab.dying_speed = 0.01
@@ -393,7 +392,7 @@ data:extend(
   {
     type = "unit",
     name = "old-small-biter",
-    icon = "__base__/graphics/icons/small-biter.png",
+    icon = modgraphics .. "icons/old-small-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 15,
     order = "b-a-a",
@@ -438,7 +437,7 @@ data:extend(
   {
     type = "unit",
     name = "old-medium-biter",
-    icon = "__base__/graphics/icons/medium-biter.png",
+    icon = modgraphics .. "icons/old-medium-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 75,
     order = "b-a-b",
@@ -497,7 +496,7 @@ data:extend(
     type = "unit",
     name = "old-big-biter",
     order="b-a-c",
-    icon = "__base__/graphics/icons/big-biter.png",
+    icon = modgraphics .. "icons/old-big-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 375,
     subgroup = "enemies",
@@ -556,7 +555,7 @@ data:extend(
     type = "unit",
     name = "old-behemoth-biter",
     order="b-a-d",
-    icon = "__base__/graphics/icons/behemoth-biter.png",
+    icon = modgraphics .. "icons/old-behemoth-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 3000,
     subgroup = "enemies",
@@ -618,7 +617,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-small-biter-corpse",
-    icon = "__base__/graphics/icons/small-biter-corpse.png",
+    icon = modgraphics .. "icons/old-small-biter-corpse.png",
     selection_box = {{-0.8, -0.8}, {0.8, 0.8}},
     selectable_in_game = false,
     hidden_in_factoriopedia = true,
@@ -631,7 +630,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-medium-biter-corpse",
-    icon = "__base__/graphics/icons/medium-biter-corpse.png",
+    icon = modgraphics .. "icons/old-medium-biter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -644,7 +643,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-big-biter-corpse",
-    icon = "__base__/graphics/icons/big-biter-corpse.png",
+    icon = modgraphics .. "icons/old-big-biter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -657,7 +656,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-behemoth-biter-corpse",
-    icon = "__base__/graphics/icons/behemoth-biter-corpse.png",
+    icon = modgraphics .. "icons/old-behemoth-biter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -686,7 +685,7 @@ data:extend(
   {
     type = "unit",
     name = "old-small-spitter",
-    icon = "__base__/graphics/icons/small-spitter.png",
+    icon = modgraphics .. "icons/old-small-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 10,
     order = "b-b-a",
@@ -738,7 +737,7 @@ data:extend(
   {
     type = "unit",
     name = "old-medium-spitter",
-    icon = "__base__/graphics/icons/medium-spitter.png",
+    icon = modgraphics .. "icons/old-medium-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 50,
     order = "b-b-b",
@@ -794,7 +793,7 @@ data:extend(
   {
     type = "unit",
     name = "old-big-spitter",
-    icon = "__base__/graphics/icons/big-spitter.png",
+    icon = modgraphics .. "icons/old-big-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 200,
     order = "b-b-c",
@@ -851,7 +850,7 @@ data:extend(
   {
     type = "unit",
     name = "old-behemoth-spitter",
-    icon = "__base__/graphics/icons/behemoth-spitter.png",
+    icon = modgraphics .. "icons/old-behemoth-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 1500,
     order = "b-b-d",
@@ -909,7 +908,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-small-spitter-corpse",
-    icon = "__base__/graphics/icons/small-spitter-corpse.png",
+    icon = modgraphics .. "icons/old-small-spitter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -922,7 +921,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-medium-spitter-corpse",
-    icon = "__base__/graphics/icons/medium-spitter-corpse.png",
+    icon = modgraphics .. "icons/old-medium-spitter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -935,7 +934,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-big-spitter-corpse",
-    icon = "__base__/graphics/icons/big-spitter-corpse.png",
+    icon = modgraphics .. "icons/old-big-spitter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -948,7 +947,7 @@ data:extend(
   {
     type = "corpse",
     name = "old-behemoth-spitter-corpse",
-    icon = "__base__/graphics/icons/behemoth-spitter-corpse.png",
+    icon = modgraphics .. "icons/old-behemoth-spitter-corpse.png",
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
@@ -977,7 +976,7 @@ data:extend(
   {
     type = "unit-spawner",
     name = "old-biter-spawner",
-    icon = "__base__/graphics/icons/biter-spawner.png",
+    icon = modgraphics .. "icons/old-biter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
     max_health = 350,
     order="b-d-a",
@@ -1115,7 +1114,7 @@ data:extend(
     name = "old-biter-spawner-corpse",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
-    icon = "__base__/graphics/icons/biter-spawner-corpse.png",
+    icon = modgraphics .. "icons/old-biter-spawner-corpse.png",
     collision_box = {{-2, -2}, {2, 2}},
     selection_box = {{-2, -2}, {2, 2}},
     selectable_in_game = false,
@@ -1148,7 +1147,7 @@ data:extend(
   {
     type = "unit-spawner",
     name = "old-spitter-spawner",
-    icon = "__base__/graphics/icons/spitter-spawner.png",
+    icon = modgraphics .. "icons/old-spitter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
     max_health = 350,
     order="b-d-b",
@@ -1289,7 +1288,7 @@ data:extend(
     name = "old-spitter-spawner-corpse",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
-    icon = "__base__/graphics/icons/spitter-spawner-corpse.png",
+    icon = modgraphics .. "icons/old-spitter-spawner-corpse.png",
     collision_box = {{-2, -2}, {2, 2}},
     selection_box = {{-2, -2}, {2, 2}},
     selectable_in_game = false,
@@ -1327,7 +1326,7 @@ data:extend(
   {
     type = "turret",
     name = "old-small-worm-turret",
-    icon = "__base__/graphics/icons/small-worm.png",
+    icon = modgraphics .. "icons/old-small-worm-turret.png",
     flags = {"placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     order="b-c-a",
     max_health = 200,
@@ -1448,7 +1447,7 @@ data:extend(
   {
     type = "turret",
     name = "old-medium-worm-turret",
-    icon = "__base__/graphics/icons/medium-worm.png",
+    icon = modgraphics .. "icons/old-medium-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     order="b-c-b",
     subgroup="enemies",
@@ -1593,7 +1592,7 @@ data:extend(
   {
     type = "turret",
     name = "old-big-worm-turret",
-    icon = "__base__/graphics/icons/big-worm.png",
+    icon = modgraphics .. "icons/old-big-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 1500,
     order = "b-c-c",
@@ -1736,7 +1735,7 @@ data:extend(
   {
     type = "turret",
     name = "old-behemoth-worm-turret",
-    icon = "__base__/graphics/icons/behemoth-worm.png",
+    icon = modgraphics .. "icons/old-behemoth-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 3000,
     order = "b-c-d",
