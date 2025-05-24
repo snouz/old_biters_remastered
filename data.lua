@@ -25,8 +25,8 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 --local old_spitter_spawner_tint = {0.99, 0.09, 0.09, 1}
 
 
-local old_biter_spawner_tint = {0.3, 0, 0, 0.5}
-local old_spitter_spawner_tint = {0.3, 0, 0, 1}
+local old_biter_spawner_tint = {0.7, 0.4, 0.2, 0.5}
+local old_spitter_spawner_tint = {0.3, 0.1, 0.1, 0.7}
 
 local old_small_worm_scale = 0.325
 local old_medium_worm_scale = 0.415
@@ -55,13 +55,13 @@ local old_behemoth_biter_scale = 0.6
 --local old_big_biter_tint2 = {r=0.31, g=0.61, b=0.95, a=0.85/2}
 --local old_behemoth_biter_tint1 = {r=0.3, g=0.9, b=0.3, a=0.75/2}
 --local old_behemoth_biter_tint2 = {r=0.88, g=0.24, b=0.24, a=0.9/2}
-local old_small_biter_tint1 = {0.60, 0.58, 0.51, 1}
+local old_small_biter_tint1 = {0.70, 0.68, 0.61, 0.5}
 local old_small_biter_tint2 = {0.62, 0.55, 0.2, 0.7}
-local old_medium_biter_tint1 = {0.49, 0.46, 0.51, 1}
+local old_medium_biter_tint1 = {0.59, 0.56, 0.61, 0.7}
 local old_medium_biter_tint2 = {0.6, 0.36, 0.36, 0.7}
-local old_big_biter_tint1 = {0.37, 0.40, 0.72, 1}
+local old_big_biter_tint1 = {0.47, 0.50, 0.82, 0.8}
 local old_big_biter_tint2 = {0.15, 0.55, 0.5, 0.7}
-local old_behemoth_biter_tint1 = {0.2, 0.25, 0.2, 1}
+local old_behemoth_biter_tint1 = {0.3, 0.35, 0.3, 0.9}
 local old_behemoth_biter_tint2 = {0.45, 0.82, 0.1, 0.7}
 
 local old_small_spitter_scale = 0.25
