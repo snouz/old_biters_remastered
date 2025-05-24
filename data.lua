@@ -73,10 +73,10 @@ local old_behemoth_spitter_scale = 0.6
 --local old_medium_spitter_tint = {r=0.83, g=0.39, b=0.36, a=0.75/2}
 --local old_big_spitter_tint = {r=0.54, g=0.58, b=0.85, a=0.6/2}
 --local old_behemoth_spitter_tint = {r=0.3, g=0.9, b=0.3, a=0.75/2}
-local old_small_spitter_tint = {0.8, 0.45, 0, 1}
-local old_medium_spitter_tint = {0.7, 0.2, 0.3, 1}
-local old_big_spitter_tint = {0.1, 0.4, 0.6, 1}
-local old_behemoth_spitter_tint = {0.3, 0.2, 0.06, 1}
+local old_small_spitter_tint = {0.6, 0.35, 0, 0.5}
+local old_medium_spitter_tint = {0.7, 0.2, 0.3, 0.7}
+local old_big_spitter_tint = {0.1, 0.4, 0.6, 0.8}
+local old_behemoth_spitter_tint = {0.3, 0.4, 0.06, 1}
 
 
 
@@ -383,6 +383,8 @@ local function old_add_spitter_die_animation(scale, tint1, corpse)
   return corpse
 end
 
+  return corpse
+end
 
 
 data:extend(
@@ -613,7 +615,7 @@ data:extend(
 
 
 
-  add_biter_die_animation(old_small_biter_scale, old_small_biter_tint1, old_small_biter_tint2,
+  old_add_biter_die_animation(old_small_biter_scale, old_small_biter_tint1, old_small_biter_tint2,
   {
     type = "corpse",
     name = "old-small-biter-corpse",
@@ -626,7 +628,7 @@ data:extend(
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
   }),
 
-  add_biter_die_animation(old_medium_biter_scale, old_medium_biter_tint1, old_medium_biter_tint2,
+  old_add_biter_die_animation(old_medium_biter_scale, old_medium_biter_tint1, old_medium_biter_tint2,
   {
     type = "corpse",
     name = "old-medium-biter-corpse",
@@ -639,7 +641,7 @@ data:extend(
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
 
-  add_biter_die_animation(old_big_biter_scale, old_big_biter_tint1, old_big_biter_tint2,
+  old_add_biter_die_animation(old_big_biter_scale, old_big_biter_tint1, old_big_biter_tint2,
   {
     type = "corpse",
     name = "old-big-biter-corpse",
@@ -652,7 +654,7 @@ data:extend(
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
 
-  add_biter_die_animation(old_behemoth_biter_scale, old_behemoth_biter_tint1, old_behemoth_biter_tint2,
+  old_add_biter_die_animation(old_behemoth_biter_scale, old_behemoth_biter_tint1, old_behemoth_biter_tint2,
   {
     type = "corpse",
     name = "old-behemoth-biter-corpse",
