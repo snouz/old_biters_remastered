@@ -209,7 +209,6 @@ function old_biterdieanimation(scale, tint1, tint2)
           }
         }
       },
-
       {
         width = 190*2,
         height = 129*2,

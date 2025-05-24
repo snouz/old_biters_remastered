@@ -120,52 +120,6 @@ local make_unit_melee_ammo_type = function(damage_value)
   }
 end
 
-
-
-local function old_worm_corpse(name, scale, tint, order_char)
-  local tab = {}
-  order_char = order_char or "a"
-
-  tab.type = "corpse"
-  tab.name = name .. "-worm-corpse"
-  tab.icon = modgraphics .. "/icons/" .. name .. "-worm-corpse.png"
-  tab.selection_box = {{-0.8, -0.8}, {0.8, 0.8}}
-  tab.selectable_in_game = false
-  tab.dying_speed = 0.01
-  tab.time_before_removed = 15 * 60 * 60
-  tab.subgroup = "corpses"
-  tab.order = "c[corpse]-c[worm]-".. order_char .."[" .. name .. "]"
-  tab.flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
-  tab.hidden_in_factoriopedia = true
-  tab.final_render_layer = "lower-object-above-shadow"
-  tab.animation = old_worm_die_animation(scale, tint)
-  --tab.decay_animation = worm_decay_animation(scale, tint)
-  --tab.decay_frame_transition_duration = 6 * 60
-  --[[tab.ground_patch =
-  {
-    sheet = worm_integration(scale)
-  }
-  tab.ground_patch_decay =
-  {
-    sheet = worm_integration_decay(scale)
-  }]]
-
-  return tab
-end
-
-local function old_worm_corpse_burrowed(name, scale, tint, order_char)
-  local tab = old_worm_corpse(name, scale, tint, order_char)
-
-  tab.name = tab.name .. "-burrowed"
-  tab.order = tab.order .. "-burrowed"
-  tab.animation = old_worm_die_animation(scale, tint)
-
-  return tab
-end
-
-
-
-
 local function old_spitter_attack_parameters(data)
   return
   {
@@ -345,14 +299,14 @@ local function old_spitter_behemoth_attack_parameters(data)
   }
 end
 
-
-local function old_add_spitter_die_animation(scale, tint1, corpse)
-  corpse.animation = old_spitterdyinganimation(scale, tint1)
-  --corpse.decay_animation = spitter_decay_animation(scale, tint1, tint2)
+function old_add_biter_die_animation(scale, tint1, tint2, corpse)
+  corpse.animation = old_biterdieanimation(scale, tint1, tint2)
+  --corpse.decay_animation = biter_decay_animation(scale, tint1, tint2)
   --corpse.decay_frame_transition_duration = 6 * 60
-  corpse.use_decay_layer = true
-  corpse.dying_speed = (1 / 25) * (0.27 + 0.1 / scale)
-  corpse.time_before_removed = 15 * 60 * 60
+  --corpse.use_decay_layer = true
+  corpse.dying_speed = (1 / 25) * (0.25 + 0.1 / scale)
+  corpse.time_before_removed = 4 * 60 * 60
+  corpse.time_before_shading_off = 4 * 60 * 60
   corpse.direction_shuffle = { { 1, 2, 3, 16 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } }
   corpse.shuffle_directions_at_frame = 0
   corpse.final_render_layer = "lower-object-above-shadow"
@@ -383,7 +337,90 @@ local function old_add_spitter_die_animation(scale, tint1, corpse)
   return corpse
 end
 
+
+
+local function old_add_spitter_die_animation(scale, tint1, corpse)
+  corpse.animation = old_spitterdyinganimation(scale, tint1)
+  --corpse.decay_animation = spitter_decay_animation(scale, tint1, tint2)
+  --corpse.decay_frame_transition_duration = 6 * 60
+  corpse.use_decay_layer = true
+  corpse.dying_speed = (1 / 25) * (0.27 + 0.1 / scale)
+  --corpse.time_before_removed = 15 * 60 * 60
+  corpse.time_before_removed = 4 * 60 * 60
+  corpse.time_before_shading_off = 4 * 60 * 60
+  corpse.direction_shuffle = { { 1, 2, 3, 16 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } }
+  corpse.shuffle_directions_at_frame = 0
+  corpse.final_render_layer = "lower-object-above-shadow"
+
+  corpse.ground_patch_render_layer = "decals" -- "transport-belt-integration"
+  corpse.ground_patch_fade_in_delay = 1 / 0.02 --  in ticks; 1/dying_speed to delay the animation until dying animation finishes
+  corpse.ground_patch_fade_in_speed = 0.002
+  corpse.ground_patch_fade_out_start = 50 * 60
+  corpse.ground_patch_fade_out_duration = 20 * 60
+
+  local a = 1
+  local d = 0.9
+  corpse.ground_patch =
+  {
+    sheet =
+      util.sprite_load("__base__/graphics/entity/biter/blood-puddle-var-main",
+        {
+          flags = { "low-object" },
+          variation_count = 4,
+          scale = scale * 0.5,
+          tint = {r = 0.6 * d * a, g = 0.1 * d * a, b = 0.6 * d * a, a = a},
+          multiply_shift = scale,
+          allow_forced_downscale = true,
+        }
+      )
+
+  }
   return corpse
+end
+
+
+
+local function old_worm_corpse(name, scale, tint, order_char)
+  local tab = {}
+  order_char = order_char or "a"
+
+  tab.type = "corpse"
+  tab.name = name .. "-worm-corpse"
+  tab.icon = modgraphics .. "/icons/" .. name .. "-worm-corpse.png"
+  tab.selection_box = {{-0.8, -0.8}, {0.8, 0.8}}
+  tab.selectable_in_game = false
+  tab.dying_speed = 0.01
+  --tab.time_before_removed = 15 * 60 * 60
+  tab.time_before_removed = 7 * 60 * 60
+  tab.time_before_shading_off = 7 * 60 * 60
+  tab.subgroup = "corpses"
+  tab.order = "c[corpse]-c[worm]-".. order_char .."[" .. name .. "]"
+  tab.flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
+  tab.hidden_in_factoriopedia = true
+  tab.final_render_layer = "lower-object-above-shadow"
+  tab.animation = old_worm_die_animation(scale, tint)
+  --tab.decay_animation = worm_decay_animation(scale, tint)
+  tab.decay_frame_transition_duration = 6 * 60
+  tab.ground_patch =
+  {
+    sheet = worm_integration(scale)
+  }
+  tab.ground_patch_decay =
+  {
+    sheet = worm_integration_decay(scale)
+  }
+
+  return tab
+end
+
+local function old_worm_corpse_burrowed(name, scale, tint, order_char)
+  local tab = old_worm_corpse(name, scale, tint, order_char)
+
+  tab.name = tab.name .. "-burrowed"
+  tab.order = tab.order .. "-burrowed"
+  tab.animation = old_worm_die_animation(scale, tint)
+
+  return tab
 end
 
 
@@ -402,7 +439,7 @@ data:extend(
     factoriopedia_simulation = simulations.factoriopedia_small_biter,
     resistances = {},
     healing_per_tick = 0.01,
-    collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
+    collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.4, -0.7}, {0.4, 0.4}},
     damaged_trigger_effect = hit_effects.biter(),
     attack_parameters =
@@ -459,7 +496,7 @@ data:extend(
     },
     impact_category = "organic",
     healing_per_tick = 0.01,
-    collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
+    collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
     sticker_box = {{-0.3, -0.5}, {0.3, 0.1}},
@@ -518,7 +555,7 @@ data:extend(
     },
     spawning_time_modifier = 3,
     healing_per_tick = 0.02,
-    collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
+    collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
     sticker_box = {{-0.6, -0.8}, {0.6, 0}},
@@ -578,7 +615,7 @@ data:extend(
     impact_category = "organic",
     spawning_time_modifier = 12,
     healing_per_tick = 0.1,
-    collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
+    collision_box = {{-0.6, -0.6}, {0.6, 0.6}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
     sticker_box = {{-0.6, -0.8}, {0.6, 0}},
@@ -1121,7 +1158,9 @@ data:extend(
     selection_box = {{-2, -2}, {2, 2}},
     selectable_in_game = false,
     dying_speed = 0.015,
-    time_before_removed = 15 * 60 * 60,
+    --time_before_removed = 15 * 60 * 60,
+    time_before_removed = 10 * 60 * 60,
+    time_before_shading_off = 10 * 60 * 60,
     subgroup="corpses",
     order = "c[corpse]-b[biter-spawner]",
     animation =
@@ -1295,7 +1334,9 @@ data:extend(
     selection_box = {{-2, -2}, {2, 2}},
     selectable_in_game = false,
     dying_speed = 0.015,
-    time_before_removed = 15 * 60 * 60,
+    --time_before_removed = 15 * 60 * 60,
+    time_before_removed = 10 * 60 * 60,
+    time_before_shading_off = 10 * 60 * 60,
     subgroup="corpses",
     order = "c[corpse]-c[spitter-spawner]",
     animation =
@@ -1316,6 +1357,7 @@ data:extend(
     -- use_decay_layer = true,
     final_render_layer = "lower-object-above-shadow",
   },
+
 
 
 
