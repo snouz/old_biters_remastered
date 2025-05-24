@@ -37,10 +37,10 @@ local old_behemoth_worm_scale = 0.6
 --local old_medium_worm_tint = {r=0.9, g=0.15, b=0.3, a=1.0/2}
 --local old_big_worm_tint = {r=0.34, g=0.68, b=0.90, a=1.0/2}
 --local old_behemoth_worm_tint = {r=0.88, g=0.24, b=0.24, a=0.9/2}
-local old_small_worm_tint = {0.7, 1, 0.3, 0.5}
-local old_medium_worm_tint = {0.9, 0.15, 0.3, 1}
-local old_big_worm_tint = {0.34, 0.68, 0.90, 0.8}
-local old_behemoth_worm_tint = {0.3, 1, 0, 0.8}
+local old_small_worm_tint = {0.7, 1, 0.3, 0.4}
+local old_medium_worm_tint = {0.9, 0.15, 0.3, 0.9}
+local old_big_worm_tint = {0.34, 0.68, 0.90, 0.7}
+local old_behemoth_worm_tint = {0.25, 0.8, 0, 0.6}
 
 local old_small_biter_scale = 0.25
 local old_medium_biter_scale = 0.35
@@ -159,7 +159,7 @@ local function old_worm_corpse_burrowed(name, scale, tint, order_char)
 
   tab.name = tab.name .. "-burrowed"
   tab.order = tab.order .. "-burrowed"
-  tab.animation = worm_die_burrowed_animation(scale, tint)
+  tab.animation = old_worm_die_animation(scale, tint)
 
   return tab
 end
