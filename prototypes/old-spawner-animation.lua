@@ -1,11 +1,25 @@
 local anim_speed = 0.1 --original 0.18
 
 
-function old_spawner_idle_animation(variation, tint)
-return
+function old_spawner_idle_animation(variation, tint, mask)
+  local graph = 
   {
     layers =
     {
+      {
+        filename = modgraphics .. "entity/spawner/spawner-idle-groundintegration.png",
+        flags = { "low-object" },
+        line_length = 1,
+        repeat_count = 14,
+        width = 486,
+        height = 362,
+        animation_speed = anim_speed,
+        direction_count = 1,
+        --run_mode = "forward-then-backward",
+        shift = util.by_pixel(14, 2),
+        y = variation * 362,
+        scale = 0.5,
+      },
       {
         filename = modgraphics .. "entity/spawner/spawner-idle.png",
         line_length = 8,
@@ -33,6 +47,11 @@ return
         y = variation * 362,
         scale = 0.5,
       },
+    }
+  }
+
+  if mask ~= nil then
+    table.insert(graph.layers, 
       {
         filename = modgraphics .. "entity/spawner/spawner-idle-mask.png",
         --flags = { "mask" },
@@ -43,19 +62,33 @@ return
         run_mode = "forward-then-backward",
         shift = util.by_pixel(-2, -2),
         line_length = 8,
-        tint = tint,
+        --tint = tint,
         y = variation * 296,
         scale = 0.5,
-      }
-    }
-  }
+      })
+  end
+  return graph
 end
 
-function old_spawner_die_animation(variation, tint)
-return
+function old_spawner_die_animation(variation, tint, mask)
+  local graph = 
   {
     layers =
     {
+      {
+        filename = modgraphics .. "entity/spawner/spawner-idle-groundintegration.png",
+        flags = { "low-object" },
+        line_length = 1,
+        repeat_count = 20,
+        width = 486,
+        height = 362,
+        animation_speed = anim_speed,
+        direction_count = 1,
+        --run_mode = "forward-then-backward",
+        shift = util.by_pixel(14, 2),
+        y = variation * 362,
+        scale = 0.5,
+      },
       {
         width = 510,
         height = 368,
@@ -115,15 +148,18 @@ return
          }
         }
       },
+    }
+  }
+  if mask ~= nil then
+    table.insert(graph.layers, 
       {
-        --flags = { "mask" },
         width = 332,
         height = 296,
         frame_count = 20,
         direction_count = 1,
         shift = util.by_pixel(-1.5, -2.5),
         scale = 0.5,
-        tint = tint,
+        --tint = tint,
         stripes =
         {
          {
@@ -139,8 +175,8 @@ return
           y = variation * 296
          }
         }
-      }
-    }
-  }
+      })
+  end
+  return graph
 end
 

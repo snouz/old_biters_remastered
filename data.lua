@@ -25,8 +25,8 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 --local old_spitter_spawner_tint = {0.99, 0.09, 0.09, 1}
 
 
-local old_biter_spawner_tint = {0.7, 0.4, 0.2, 0.5}
-local old_spitter_spawner_tint = {0.3, 0.1, 0.1, 0.7}
+local old_biter_spawner_tint = {0.7, 0.4, 0.2, 0.5} --unused, naked
+local old_spitter_spawner_tint = {122/2,72/2,30, 180}--{93,58,65, 0.4}--{0.3, 0.1, 0.1, 0.7}
 
 local old_small_worm_scale = 0.325
 local old_medium_worm_scale = 0.415
@@ -1195,10 +1195,10 @@ data:extend(
     {
       animations =
       {
-        old_spawner_idle_animation(0, old_spitter_spawner_tint),
-        old_spawner_idle_animation(1, old_spitter_spawner_tint),
-        old_spawner_idle_animation(2, old_spitter_spawner_tint),
-        old_spawner_idle_animation(3, old_spitter_spawner_tint)
+        old_spawner_idle_animation(0, old_spitter_spawner_tint, true),
+        old_spawner_idle_animation(1, old_spitter_spawner_tint, true),
+        old_spawner_idle_animation(2, old_spitter_spawner_tint, true),
+        old_spawner_idle_animation(3, old_spitter_spawner_tint, true)
       },
     },
     result_units =
@@ -1299,10 +1299,10 @@ data:extend(
     order = "c[corpse]-c[spitter-spawner]",
     animation =
     {
-      old_spawner_die_animation(0, old_spitter_spawner_tint),
-      old_spawner_die_animation(1, old_spitter_spawner_tint),
-      old_spawner_die_animation(2, old_spitter_spawner_tint),
-      old_spawner_die_animation(3, old_spitter_spawner_tint)
+      old_spawner_die_animation(0, old_spitter_spawner_tint, true),
+      old_spawner_die_animation(1, old_spitter_spawner_tint, true),
+      old_spawner_die_animation(2, old_spitter_spawner_tint, true),
+      old_spawner_die_animation(3, old_spitter_spawner_tint, true)
     },
     --[[decay_animation =
     {
