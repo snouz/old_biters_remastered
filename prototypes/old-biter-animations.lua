@@ -80,8 +80,8 @@ function old_biterattackanimation(scale, tint1, tint2)
     layers=
     {
       {
-        width = 279*2,
-        height = 184*2,
+        width = 558,
+        height = 368,
         frame_count = 11,
         direction_count = 16,
         shift = {scale * 1.74609*2, scale * -0.644531*2},
@@ -113,8 +113,8 @@ function old_biterattackanimation(scale, tint1, tint2)
       },
 
       {
-        width = 279*2,
-        height = 184*2,
+        width = 558,
+        height = 368,
         frame_count = 11,
         direction_count = 16,
         shift = {scale * 1.74609*2, scale * -0.644531*2},
@@ -149,8 +149,8 @@ function old_biterattackanimation(scale, tint1, tint2)
       {
         filename = modgraphics .. "entity/biter/biter-attack-mask1.png",
         flags = { "mask" },
-        width = 125*2,
-        height = 108*2,
+        width = 250,
+        height = 216,
         frame_count = 11,
         direction_count = 16,
         shift = {scale * 0.117188*2, scale * -1.11328*2},
@@ -161,8 +161,8 @@ function old_biterattackanimation(scale, tint1, tint2)
       {
         filename = modgraphics .. "entity/biter/biter-attack-mask2.png",
         flags = { "mask" },
-        width = 114*2,
-        height = 100*2,
+        width = 228,
+        height = 200,
         frame_count = 11,
         direction_count = 16,
         shift = {scale * 0.117188*2, scale * -1.06641*2},
@@ -179,8 +179,8 @@ function old_biterdieanimation(scale, tint1, tint2)
     layers=
     {
       {
-        width = 190*2,
-        height = 129*2,
+        width = 380,
+        height = 258,
         frame_count = 17,
         direction_count = 16,
         shift = {scale * 0.621094*2, scale * -0.1875*2},
@@ -210,8 +210,8 @@ function old_biterdieanimation(scale, tint1, tint2)
         }
       },
       {
-        width = 190*2,
-        height = 129*2,
+        width = 380,
+        height = 258,
         frame_count = 17,
         direction_count = 16,
         shift = {scale * 0.621094*2, scale * -0.1875*2},
@@ -245,8 +245,8 @@ function old_biterdieanimation(scale, tint1, tint2)
       {
         filename = modgraphics .. "entity/biter/biter-die-mask1.png",
         flags = { "mask" },
-        width = 120*2,
-        height = 109*2,
+        width = 240,
+        height = 218,
         frame_count = 17,
         direction_count = 16,
         shift = {scale * 0.117188*2, scale * -0.574219*2},
@@ -257,8 +257,8 @@ function old_biterdieanimation(scale, tint1, tint2)
       {
         filename = modgraphics .. "entity/biter/biter-die-mask2.png",
         flags = { "mask" },
-        width = 115*2,
-        height = 108*2,
+        width = 230,
+        height = 216,
         frame_count = 17,
         direction_count = 16,
         shift = {scale * 0.128906*2, scale * -0.585938*2},

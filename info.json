@@ -8,6 +8,7 @@
   "description": "old_biters_remastered.",
   "dependencies": [
     "base",
-    "? space-age"
+    "(?) space-age",
+    "(?) SchallAlienLoot"
   ]
 }

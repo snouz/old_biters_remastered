@@ -8,6 +8,7 @@ require ("__base__.prototypes.entity.enemy-projectiles")
 --require ("__base__.prototypes.entity.spawner-animation")
 --require ("__base__.prototypes.entity.worm-animations")
 
+require ("prototypes.items")
 require ("prototypes.old-biter-animations")
 require ("prototypes.old-spitter-animations")
 require ("prototypes.old-worm-animations")
@@ -1026,6 +1027,15 @@ data:extend(
     max_health = 350,
     order="b-d-a-proto",
     subgroup="enemies",
+    loot =
+    {
+      {
+        count_max = 10,
+        count_min = 2,
+        item = "alien-artifact",
+        probability = 1
+      }
+    },
     resistances =
     {
       {
@@ -1164,6 +1174,15 @@ data:extend(
     max_health = 350,
     order="b-d-b-proto",
     subgroup="enemies",
+    loot =
+    {
+      {
+        count_max = 15,
+        count_min = 5,
+        item = "alien-artifact",
+        probability = 1
+      }
+    },
     working_sound =
     {
       sound = {category = "enemy", filename = "__base__/sound/creatures/spawner-spitter.ogg", volume = 0.6, modifiers = volume_multiplier("main-menu", 0.7) },
