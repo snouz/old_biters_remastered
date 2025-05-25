@@ -389,26 +389,32 @@ local function old_worm_corpse(name, scale, tint, order_char)
   tab.icon = modgraphics .. "/icons/" .. name .. "-worm-corpse.png"
   tab.selection_box = {{-0.8, -0.8}, {0.8, 0.8}}
   tab.selectable_in_game = false
-  tab.dying_speed = 0.01
+  --tab.dying_speed = 0.01
   --tab.time_before_removed = 15 * 60 * 60
-  tab.time_before_removed = 7 * 60 * 60
-  tab.time_before_shading_off = 7 * 60 * 60
+  --tab.time_before_removed = 7 * 60 * 60
+  --tab.time_before_shading_off = 7 * 60 * 60
+
+
+  tab.dying_speed = 0.01
+  tab.time_before_removed = 6 * 60 * 60
+  tab.decay_frame_transition_duration = 10 * 60 --(1 * 10 * 60),
+
   tab.subgroup = "corpses"
   tab.order = "c[corpse]-c[worm]-".. order_char .."[" .. name .. "]"
   tab.flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
   tab.hidden_in_factoriopedia = true
   tab.final_render_layer = "lower-object-above-shadow"
   tab.animation = old_worm_die_animation(scale, tint)
-  --tab.decay_animation = worm_decay_animation(scale, tint)
-  tab.decay_frame_transition_duration = 6 * 60
-  tab.ground_patch =
-  {
-    sheet = worm_integration(scale)
-  }
-  tab.ground_patch_decay =
-  {
-    sheet = worm_integration_decay(scale)
-  }
+  tab.decay_animation = old_worm_decay_animation(scale)
+  --tab.decay_frame_transition_duration = 6 * 60
+  --tab.ground_patch =
+  --{
+  --  sheet = worm_integration(scale)
+  --}
+  --tab.ground_patch_decay =
+  --{
+  --  sheet = worm_integration_decay(scale)
+  --}
 
   return tab
 end

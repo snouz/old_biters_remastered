@@ -244,8 +244,8 @@ function old_worm_die_animation(scale, tint)
       {
         filename = modgraphics .. "entity/worm/worm-die.png",
         line_length = 6,
-        width = 198*2,
-        height = 171*2,
+        width = 396,
+        height = 342,
         frame_count = 24,
         shift = {scale * 0.953125 *2, scale * -0.625 *2},
         direction_count = 1,
@@ -254,8 +254,8 @@ function old_worm_die_animation(scale, tint)
       {
         filename = modgraphics .. "entity/worm/worm-die-shadow.png",
         line_length = 6,
-        width = 198*2,
-        height = 171*2,
+        width = 396,
+        height = 342,
         frame_count = 24,
         shift = {scale * 0.953125 *2, scale * -0.625 *2},
         direction_count = 1,
@@ -274,6 +274,25 @@ function old_worm_die_animation(scale, tint)
         scale = scale,
         tint = tint
       }
+    }
+  }
+end
+
+function old_worm_decay_animation(scale)
+  return
+  {
+    layers=
+    {
+      {
+        filename = modgraphics .. "entity/worm/worm-decay.png",
+        line_length = 6,
+        width = 396,
+        height = 342,
+        frame_count = 24,
+        shift = {scale * 0.953125 *2, scale * -0.625 *2},
+        direction_count = 1,
+        scale = scale
+      },
     }
   }
 end
