@@ -434,7 +434,7 @@ data:extend(
     icon = modgraphics .. "icons/old-small-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 15,
-    order = "b-a-a",
+    order = "b-a-a-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_small_biter,
     resistances = {},
@@ -479,7 +479,7 @@ data:extend(
     icon = modgraphics .. "icons/old-medium-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 75,
-    order = "b-a-b",
+    order = "b-a-b-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_medium_biter,
     resistances =
@@ -534,7 +534,7 @@ data:extend(
   {
     type = "unit",
     name = "old-big-biter",
-    order="b-a-c",
+    order="b-a-c-proto",
     icon = modgraphics .. "icons/old-big-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 375,
@@ -593,7 +593,7 @@ data:extend(
   {
     type = "unit",
     name = "old-behemoth-biter",
-    order="b-a-d",
+    order="b-a-d-proto",
     icon = modgraphics .. "icons/old-behemoth-biter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 3000,
@@ -661,7 +661,7 @@ data:extend(
     selectable_in_game = false,
     hidden_in_factoriopedia = true,
     subgroup="corpses",
-    order = "c[corpse]-a[biter]-a[small]",
+    order = "c[corpse]-a[biter]-a[small]-proto",
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
   }),
 
@@ -673,7 +673,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-a[biter]-b[medium]",
+    order = "c[corpse]-a[biter]-b[medium]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -686,7 +686,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-a[biter]-c[big]",
+    order = "c[corpse]-a[biter]-c[big]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -699,7 +699,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-a[biter]-d[behemoth]",
+    order = "c[corpse]-a[biter]-d[behemoth]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -727,7 +727,7 @@ data:extend(
     icon = modgraphics .. "icons/old-small-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 10,
-    order = "b-b-a",
+    order = "b-b-a-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_small_spitter,
     impact_category = "organic",
@@ -779,7 +779,7 @@ data:extend(
     icon = modgraphics .. "icons/old-medium-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 50,
-    order = "b-b-b",
+    order = "b-b-b-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_medium_spitter,
     impact_category = "organic",
@@ -835,7 +835,7 @@ data:extend(
     icon = modgraphics .. "icons/old-big-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 200,
-    order = "b-b-c",
+    order = "b-b-c-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_big_spitter,
     impact_category = "organic",
@@ -892,7 +892,7 @@ data:extend(
     icon = modgraphics .. "icons/old-behemoth-spitter.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air", "not-repairable"},
     max_health = 1500,
-    order = "b-b-d",
+    order = "b-b-d-proto",
     subgroup = "enemies",
     factoriopedia_simulation = simulations.factoriopedia_behemoth_spitter,
     impact_category = "organic",
@@ -951,7 +951,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-b[spitter]-a[small]",
+    order = "c[corpse]-b[spitter]-a[small]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -964,7 +964,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-b[spitter]-b[medium]",
+    order = "c[corpse]-b[spitter]-b[medium]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -977,7 +977,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-b[spitter]-c[big]",
+    order = "c[corpse]-b[spitter]-c[big]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -990,7 +990,7 @@ data:extend(
     selectable_in_game = false,
     selection_box = {{-1, -1}, {1, 1}},
     subgroup="corpses",
-    order = "c[corpse]-b[spitter]-d[behemoth]",
+    order = "c[corpse]-b[spitter]-d[behemoth]-proto",
     hidden_in_factoriopedia = true,
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-on-map"}
   }),
@@ -1018,7 +1018,7 @@ data:extend(
     icon = modgraphics .. "icons/old-biter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
     max_health = 350,
-    order="b-d-a",
+    order="b-d-a-proto",
     subgroup="enemies",
     resistances =
     {
@@ -1148,41 +1148,6 @@ data:extend(
     }
   },
 
-  {
-    type = "corpse",
-    name = "old-biter-spawner-corpse",
-    hidden_in_factoriopedia = true,
-    flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
-    icon = modgraphics .. "icons/old-biter-spawner-corpse.png",
-    collision_box = {{-2, -2}, {2, 2}},
-    selection_box = {{-2, -2}, {2, 2}},
-    selectable_in_game = false,
-    dying_speed = 0.015,
-    --time_before_removed = 15 * 60 * 60,
-    time_before_removed = 10 * 60 * 60,
-    time_before_shading_off = 10 * 60 * 60,
-    subgroup="corpses",
-    order = "c[corpse]-b[biter-spawner]",
-    animation =
-    {
-      old_spawner_die_animation(0, old_biter_spawner_tint),
-      old_spawner_die_animation(1, old_biter_spawner_tint),
-      old_spawner_die_animation(2, old_biter_spawner_tint),
-      old_spawner_die_animation(3, old_biter_spawner_tint)
-    },
-    --[[
-    decay_animation =
-    {
-      spawner_decay_animation(0, biter_spawner_tint),
-      spawner_decay_animation(1, biter_spawner_tint),
-      spawner_decay_animation(2, biter_spawner_tint),
-      spawner_decay_animation(3, biter_spawner_tint)
-    },
-    decay_frame_transition_duration = 6 * 60,
-    ]]
-    -- use_decay_layer = true,
-    final_render_layer = "lower-object-above-shadow" -- this is essentially ignored when 'use_decay_layer' is true
-  },
 
 
   {
@@ -1191,7 +1156,7 @@ data:extend(
     icon = modgraphics .. "icons/old-spitter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
     max_health = 350,
-    order="b-d-b",
+    order="b-d-b-proto",
     subgroup="enemies",
     working_sound =
     {
@@ -1324,6 +1289,47 @@ data:extend(
     }
   },
 
+
+
+  {
+    type = "corpse",
+    name = "old-biter-spawner-corpse",
+    hidden_in_factoriopedia = true,
+    flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
+    icon = modgraphics .. "icons/old-biter-spawner-corpse.png",
+    collision_box = {{-2, -2}, {2, 2}},
+    selection_box = {{-2, -2}, {2, 2}},
+    selectable_in_game = false,
+    --dying_speed = 0.015,
+    --time_before_removed = 15 * 60 * 60,
+    --time_before_removed = 8 * 60 * 60,
+    --time_before_shading_off = 1 * 60 * 60,
+    --decay_frame_transition_duration = 8 * 60,
+    --use_decay_layer = true,
+
+    dying_speed = 0.015,
+    time_before_removed = 4 * 60 * 60,
+    decay_frame_transition_duration = 15 * 60, --(1 * 10 * 60),
+
+    subgroup = "corpses",
+    order = "c[corpse]-b[biter-spawner]-proto",
+    animation =
+    {
+      old_spawner_die_animation(0, old_biter_spawner_tint),
+      old_spawner_die_animation(1, old_biter_spawner_tint),
+      old_spawner_die_animation(2, old_biter_spawner_tint),
+      old_spawner_die_animation(3, old_biter_spawner_tint)
+    },
+    decay_animation =
+    {
+      old_spawner_decay_animation(0),
+      old_spawner_decay_animation(1),
+      old_spawner_decay_animation(2),
+      old_spawner_decay_animation(3)
+    },
+    final_render_layer = "lower-object-above-shadow" -- this is essentially ignored when 'use_decay_layer' is true
+  },
+
   {
     type = "corpse",
     name = "old-spitter-spawner-corpse",
@@ -1333,12 +1339,19 @@ data:extend(
     collision_box = {{-2, -2}, {2, 2}},
     selection_box = {{-2, -2}, {2, 2}},
     selectable_in_game = false,
-    dying_speed = 0.015,
+    --dying_speed = 0.015,
     --time_before_removed = 15 * 60 * 60,
-    time_before_removed = 10 * 60 * 60,
-    time_before_shading_off = 10 * 60 * 60,
-    subgroup="corpses",
-    order = "c[corpse]-c[spitter-spawner]",
+    --time_before_removed = 8 * 60 * 60,
+    --time_before_shading_off = 1 * 60 * 60,
+    --decay_frame_transition_duration = 8 * 60,
+    --use_decay_layer = true,
+
+    dying_speed = 0.015,
+    time_before_removed = 4 * 60 * 60,
+    decay_frame_transition_duration = 15 * 60, --(1 * 10 * 60),
+
+    subgroup = "corpses",
+    order = "c[corpse]-c[spitter-spawner]-proto",
     animation =
     {
       old_spawner_die_animation(0, old_spitter_spawner_tint, true),
@@ -1346,15 +1359,13 @@ data:extend(
       old_spawner_die_animation(2, old_spitter_spawner_tint, true),
       old_spawner_die_animation(3, old_spitter_spawner_tint, true)
     },
-    --[[decay_animation =
+    decay_animation =
     {
-      spawner_decay_animation(0, old_spitter_spawner_tint),
-      spawner_decay_animation(1, old_spitter_spawner_tint),
-      spawner_decay_animation(2, old_spitter_spawner_tint),
-      spawner_decay_animation(3, old_spitter_spawner_tint)
+      old_spawner_decay_animation(0),
+      old_spawner_decay_animation(1),
+      old_spawner_decay_animation(2),
+      old_spawner_decay_animation(3)
     },
-    decay_frame_transition_duration = 6 * 60,]]
-    -- use_decay_layer = true,
     final_render_layer = "lower-object-above-shadow",
   },
 
@@ -1372,7 +1383,7 @@ data:extend(
     name = "old-small-worm-turret",
     icon = modgraphics .. "icons/old-small-worm-turret.png",
     flags = {"placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
-    order="b-c-a",
+    order="b-c-a-proto",
     max_health = 200,
     subgroup = "enemies",
     impact_category = "organic",
@@ -1493,7 +1504,7 @@ data:extend(
     name = "old-medium-worm-turret",
     icon = modgraphics .. "icons/old-medium-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
-    order="b-c-b",
+    order="b-c-b-proto",
     subgroup="enemies",
     max_health = 500,
     impact_category = "organic",
@@ -1639,7 +1650,7 @@ data:extend(
     icon = modgraphics .. "icons/old-big-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 1500,
-    order = "b-c-c",
+    order = "b-c-c-proto",
     subgroup = "enemies",
     impact_category = "organic",
     resistances =
@@ -1782,7 +1793,7 @@ data:extend(
     icon = modgraphics .. "icons/old-behemoth-worm-turret.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "not-repairable", "breaths-air"},
     max_health = 3000,
-    order = "b-c-d",
+    order = "b-c-d-proto",
     subgroup = "enemies",
     impact_category = "organic",
     resistances =
@@ -1918,15 +1929,15 @@ data:extend(
       }
     }
   },
-  old_worm_corpse("old-small", old_small_worm_scale, old_small_worm_tint,"a"),
-  old_worm_corpse_burrowed("old-small", old_small_worm_scale, old_small_worm_tint,"a"),
+  old_worm_corpse("old-small", old_small_worm_scale, old_small_worm_tint,"a-proto"),
+  old_worm_corpse_burrowed("old-small", old_small_worm_scale, old_small_worm_tint,"a-proto"),
 
-  old_worm_corpse("old-medium", old_medium_worm_scale, old_medium_worm_tint,"b"),
-  old_worm_corpse_burrowed("old-medium", old_medium_worm_scale, old_medium_worm_tint,"b"),
+  old_worm_corpse("old-medium", old_medium_worm_scale, old_medium_worm_tint,"b-proto"),
+  old_worm_corpse_burrowed("old-medium", old_medium_worm_scale, old_medium_worm_tint,"b-proto"),
 
-  old_worm_corpse("old-big", old_big_worm_scale, old_big_worm_tint,"c"),
-  old_worm_corpse_burrowed("old-big", old_big_worm_scale, old_big_worm_tint,"c"),
+  old_worm_corpse("old-big", old_big_worm_scale, old_big_worm_tint,"c-proto"),
+  old_worm_corpse_burrowed("old-big", old_big_worm_scale, old_big_worm_tint,"c-proto"),
 
-  old_worm_corpse("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d"),
-  old_worm_corpse_burrowed("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d")
+  old_worm_corpse("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d-proto"),
+  old_worm_corpse_burrowed("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d-proto")
 })

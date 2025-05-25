@@ -180,3 +180,31 @@ function old_spawner_die_animation(variation, tint, mask)
   return graph
 end
 
+function old_spawner_decay_animation(variation)
+  local graph = 
+  {
+    layers =
+    {
+      {
+        flags = {"corpse-decay"},
+        usage = "corpse-decay",
+        width = 510,
+        height = 368,
+        frame_count = 8,
+        direction_count = 1,
+        shift = util.by_pixel(9, 0.5),
+        scale = 0.5,
+        stripes =
+        {
+         {
+          filename = modgraphics .. "entity/spawner/spawner-decay.png",
+          width_in_frames = 8,
+          height_in_frames = 4,
+          y = variation * 368
+         },
+        }
+      },
+    }
+  }
+  return graph
+end
