@@ -186,7 +186,7 @@ function old_spawner_decay_animation(variation)
     layers =
     {
       {
-        flags = {"corpse-decay"},
+        flags = {"corpse-decay", "decal"},
         usage = "corpse-decay",
         width = 510,
         height = 368,

@@ -400,15 +400,18 @@ local function old_worm_corpse(name, scale, tint, order_char)
   tab.final_render_layer = "lower-object-above-shadow"
   tab.animation = old_worm_die_animation(scale, tint)
   tab.decay_animation = old_worm_decay_animation(scale)
-  --tab.decay_frame_transition_duration = 6 * 60
-  --tab.ground_patch =
-  --{
-  --  sheet = worm_integration(scale)
-  --}
-  --tab.ground_patch_decay =
-  --{
-  --  sheet = worm_integration_decay(scale)
-  --}
+  tab.decay_frame_transition_duration = 6 * 60
+  tab.ground_patch =
+  {
+    sheet = old_worm_integration(scale)
+  }
+  tab.ground_patch_decay =
+  {
+    sheet = old_worm_integration_decay(scale)
+  }
+  tab.final_render_layer = "remnants"
+  tab.ground_patch_render_layer = "remnants"
+  tab.use_decay_layer = true
 
   return tab
 end
@@ -1323,7 +1326,7 @@ data:extend(
     --time_before_removed = 8 * 60 * 60,
     --time_before_shading_off = 1 * 60 * 60,
     --decay_frame_transition_duration = 8 * 60,
-    --use_decay_layer = true,
+    use_decay_layer = true,
 
     dying_speed = 0.015,
     time_before_removed = 4 * 60 * 60,
@@ -1345,7 +1348,10 @@ data:extend(
       old_spawner_decay_animation(2),
       old_spawner_decay_animation(3)
     },
-    final_render_layer = "lower-object-above-shadow" -- this is essentially ignored when 'use_decay_layer' is true
+
+  	final_render_layer = "remnants",
+  	ground_patch_render_layer = "remnants",
+    --final_render_layer = "lower-object-above-shadow" -- this is essentially ignored when 'use_decay_layer' is true
   },
 
   {
@@ -1362,7 +1368,7 @@ data:extend(
     --time_before_removed = 8 * 60 * 60,
     --time_before_shading_off = 1 * 60 * 60,
     --decay_frame_transition_duration = 8 * 60,
-    --use_decay_layer = true,
+    use_decay_layer = true,
 
     dying_speed = 0.015,
     time_before_removed = 4 * 60 * 60,
@@ -1384,7 +1390,9 @@ data:extend(
       old_spawner_decay_animation(2),
       old_spawner_decay_animation(3)
     },
-    final_render_layer = "lower-object-above-shadow",
+  	final_render_layer = "remnants",
+  	ground_patch_render_layer = "remnants",
+    --final_render_layer = "lower-object-above-shadow",
   },
 
 
@@ -1451,7 +1459,7 @@ data:extend(
     random_animation_offset = true,
     attack_from_start_frame = true,
 
-    --integration = worm_integration(old_small_worm_scale, true),
+    integration = old_worm_integration(old_small_worm_scale, true),
     prepare_range = range_worm_small + prepare_range_worm_small,
     allow_turning_when_starting_attack = true,
     attack_parameters =
@@ -1593,7 +1601,7 @@ data:extend(
     random_animation_offset = true,
     attack_from_start_frame = true,
 
-    --integration = worm_integration(old_medium_worm_scale, true),
+    integration = old_worm_integration(old_medium_worm_scale, true),
     prepare_range = range_worm_medium + prepare_range_worm_medium,
     allow_turning_when_starting_attack = true,
 
@@ -1735,7 +1743,7 @@ data:extend(
     folding_speed_when_killed = 0.015 * folding_speed_multiplier_when_killed,
     folding_animation = old_worm_preparing_animation(old_big_worm_scale, old_big_worm_tint, "backward"),
     folding_sound = sounds.worm_fold(1),
-    --integration = worm_integration(old_big_worm_scale, true),
+    integration = old_worm_integration(old_big_worm_scale, true),
     random_animation_offset = true,
     attack_from_start_frame = true,
 
@@ -1878,7 +1886,7 @@ data:extend(
     folding_speed_when_killed = 0.015 * folding_speed_multiplier_when_killed,
     folding_animation = old_worm_preparing_animation(old_behemoth_worm_scale, old_behemoth_worm_tint, "backward"),
     folding_sound = sounds.worm_fold(1),
-    --integration = worm_integration(old_behemoth_worm_scale, true),
+    integration = old_worm_integration(old_behemoth_worm_scale, true),
     random_animation_offset = true,
     attack_from_start_frame = true,
 
@@ -2031,3 +2039,4 @@ end
 	end
 end]]
 
+log(serpent.block(data.raw["turret"]["old-small-worm-turret"].integration))

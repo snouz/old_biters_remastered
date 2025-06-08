@@ -1,3 +1,42 @@
+function old_worm_integration_impl(scale, skip_frames, use_frames, skip_animation)
+  local frame_sequence = {}
+  for i = 1, use_frames do
+    frame_sequence[i] = i + skip_frames
+  end
+
+  local params =
+  {
+    scale = scale * 1, --0.5,
+    multiply_shift = scale,
+  }
+
+  if not skip_animation then
+    params.variation_count = 1
+    params.frame_count = 25
+    params.frame_sequence = frame_sequence
+  end
+
+  --params.surface = "nauvis"
+  --params.usage = "enemy"
+  params.allow_forced_downscale = true
+
+
+  local result = util.sprite_load("__old_biters_remastered__/graphics/entity/worm/worm-hole-collapse", params)
+  if skip_animation then result.line_length = nil end
+
+  return result;
+end
+
+function old_worm_integration(scale, skip_animation)
+  return old_worm_integration_impl(scale, 0, 1, skip_animation)
+end
+
+function old_worm_integration_decay(scale)
+  return old_worm_integration_impl(scale, 1, 24)
+end
+
+
+
 
 function old_worm_folded_animation(scale, tint)
   return
@@ -8,10 +47,10 @@ function old_worm_folded_animation(scale, tint)
         filename = modgraphics .. "entity/worm/worm-folded.png",
         run_mode = "forward-then-backward",
         line_length = 5,
-        width = 143*2,
-        height = 104*2,
+        width = 286,
+        height = 208,
         frame_count = 5,
-        shift = {scale * 0.09375 *2, scale * -0.046875 *2},
+        shift = {scale * 0.1875, scale * -0.09375},
         direction_count = 1,
         scale = scale
       },
@@ -19,8 +58,8 @@ function old_worm_folded_animation(scale, tint)
         filename = modgraphics .. "entity/worm/worm-folded-shadow.png",
         run_mode = "forward-then-backward",
         line_length = 5,
-        width = 143*2,
-        height = 104*2,
+        width = 286,
+        height = 208,
         frame_count = 5,
         draw_as_shadow = true,
         shift = {scale * 0.09375 *2, scale * -0.046875 *2},
@@ -164,8 +203,8 @@ function old_worm_attack_animation(scale, tint, run_mode)
     layers=
     {
       {
-        width = 248*2,
-        height = 196*2,
+        width = 496,
+        height = 392,
         frame_count = 8,
         direction_count = 16,
         shift = {scale * 0.953125 *2, scale * -0.671875 *2},
@@ -186,8 +225,8 @@ function old_worm_attack_animation(scale, tint, run_mode)
         }
       },
       {
-        width = 248*2,
-        height = 196*2,
+        width = 496,
+        height = 392,
         frame_count = 8,
         direction_count = 16,
         shift = {scale * 0.953125 *2, scale * -0.671875 *2},
@@ -285,6 +324,7 @@ function old_worm_decay_animation(scale)
     {
       {
         filename = modgraphics .. "entity/worm/worm-decay.png",
+        flags = {"decal"},
         line_length = 6,
         width = 396,
         height = 342,
