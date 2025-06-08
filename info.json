@@ -1,11 +1,11 @@
 {
   "name": "old_biters_remastered",
   "version": "1.0.0",
-  "title": "Old Biters Remastered",
+  "title": "Proto-biters",
   "author": "snouz",
   "homepage": "https://github.com/snouz/old_biters_remastered",
   "factorio_version": "2.0",
-  "description": "old_biters_remastered.",
+  "description": "Remastered old biters (before 0.17) as a separate species on nauvis.",
   "dependencies": [
     "base",
     "(?) space-age",

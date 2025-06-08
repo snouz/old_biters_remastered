@@ -3,19 +3,14 @@ modgraphics = "__old_biters_remastered__/graphics/"
 require ("__base__.prototypes.entity.enemy-constants")
 require ("__base__.prototypes.entity.enemy-projectiles")
 
---require ("__base__.prototypes.entity.biter-animations")
---require ("__base__.prototypes.entity.spitter-animations")
---require ("__base__.prototypes.entity.spawner-animation")
---require ("__base__.prototypes.entity.worm-animations")
-
 require ("prototypes.items")
 require ("prototypes.old-biter-animations")
 require ("prototypes.old-spitter-animations")
 require ("prototypes.old-worm-animations")
 require ("prototypes.old-spawner-animation")
 
+local enemy_autoplace = require ("prototypes.enemy-autoplace")
 local biter_ai_settings = require ("__base__.prototypes.entity.biter-ai-settings")
-local enemy_autoplace = require ("__base__.prototypes.entity.enemy-autoplace-utils")
 local sounds = require ("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local simulations = require("__base__.prototypes.factoriopedia-simulations")
@@ -24,8 +19,6 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 --local old_spitter_spawner_tint = {r=0.99, g=0.09, b=0.09, a=1/2}
 --local old_biter_spawner_tint = {0.92, 0.54, 0, 0.5}
 --local old_spitter_spawner_tint = {0.99, 0.09, 0.09, 1}
-
-
 local old_biter_spawner_tint = {0.7, 0.4, 0.2, 0.5} --unused, naked
 local old_spitter_spawner_tint = {122/2,72/2,30, 180}--{93,58,65, 0.4}--{0.3, 0.1, 0.1, 0.7}
 
@@ -1105,7 +1098,7 @@ data:extend(
     spawning_spacing = 3,
     max_spawn_shift = 0,
     max_richness_for_spawn_shift = 100,
-    autoplace = enemy_autoplace.enemy_spawner_autoplace("enemy_autoplace_base(0, 6)"),
+    autoplace = enemy_autoplace.old_enemy_spawner_autoplace("enemy_autoplace_base2(1, 54156)"),
     call_for_help_radius = 50,
     time_to_capture = 60 * 20,
     spawn_decorations_on_expansion = true,
@@ -1248,7 +1241,7 @@ data:extend(
     -- distance_factor used to be 1, but Twinsen says:
     -- "The number or spitter spwners should be roughly equal to the number of biter spawners(regardless of difficulty)."
     -- (2018-12-07)
-    autoplace = enemy_autoplace.enemy_spawner_autoplace("enemy_autoplace_base(0, 7)"),
+    autoplace = enemy_autoplace.old_enemy_spawner_autoplace("enemy_autoplace_base2(1, 54157)"),
     call_for_help_radius = 50,
     time_to_capture = 60 * 30,
     spawn_decorations_on_expansion = true,
@@ -1488,7 +1481,7 @@ data:extend(
         }
       },
     },
-    autoplace = enemy_autoplace.enemy_worm_autoplace("enemy_autoplace_base(0, 2)"),
+    autoplace = enemy_autoplace.old_enemy_worm_autoplace("enemy_autoplace_base2(0, 54152)"),
     call_for_help_radius = 40,
     spawn_decorations_on_expansion = true,
     spawn_decoration =
@@ -1633,7 +1626,7 @@ data:extend(
       }
     },
     build_base_evolution_requirement = 0.3,
-    autoplace = enemy_autoplace.enemy_worm_autoplace("enemy_autoplace_base(2, 3)"),
+    autoplace = enemy_autoplace.old_enemy_worm_autoplace("enemy_autoplace_base2(2, 54153)"),
     call_for_help_radius = 40,
     spawn_decorations_on_expansion = true,
     spawn_decoration =
@@ -1777,7 +1770,7 @@ data:extend(
       }
     },
     build_base_evolution_requirement = 0.5,
-    autoplace = enemy_autoplace.enemy_worm_autoplace("enemy_autoplace_base(5, 4)"),
+    autoplace = enemy_autoplace.old_enemy_worm_autoplace("enemy_autoplace_base2(5, 54154)"),
     call_for_help_radius = 40,
     spawn_decorations_on_expansion = true,
     spawn_decoration =
@@ -1919,7 +1912,7 @@ data:extend(
       }
     },
     build_base_evolution_requirement = 0.9,
-    autoplace = enemy_autoplace.enemy_worm_autoplace("enemy_autoplace_base(8, 5)"),
+    autoplace = enemy_autoplace.old_enemy_worm_autoplace("enemy_autoplace_base2(8, 54155)"),
     call_for_help_radius = 80,
     spawn_decorations_on_expansion = true,
     spawn_decoration =
@@ -1964,5 +1957,77 @@ data:extend(
   old_worm_corpse_burrowed("old-big", old_big_worm_scale, old_big_worm_tint,"c-proto"),
 
   old_worm_corpse("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d-proto"),
-  old_worm_corpse_burrowed("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d-proto")
+  old_worm_corpse_burrowed("old-behemoth", old_behemoth_worm_scale, old_behemoth_worm_tint,"d-proto"),
+
+  {
+    type = "noise-expression",
+    name = "enemy_base_probability2",
+    expression = "spot_noise{x = x,\z
+                             y = y,\z
+                             density_expression = spot_quantity_expression * max(0, enemy_base_frequency),\z
+                             spot_quantity_expression = spot_quantity_expression,\z
+                             spot_radius_expression = spot_radius_expression,\z
+                             spot_favorability_expression = 1,\z
+                             seed0 = map_seed,\z
+                             seed1 = 1234,\z
+                             region_size = 512,\z
+                             candidate_point_count = 100,\z
+                             hard_region_target_quantity = 0,\z
+                             basement_value = -1000,\z
+                             maximum_spot_basement_radius = 128} + \z
+                  (blob(1/8, 1) + blob(1/24, 1) + blob(1/64, 2) - 0.5) * spot_radius_expression / 150 * \z
+                  (0.1 + 0.9 * clamp(distance / 3000, 0, 1)) - 0.3 + min(0, 20 / starting_area_radius * distance - 20)",
+    local_expressions =
+    {
+      spot_radius_expression = "max(0, enemy_base_radius)",
+      spot_quantity_expression = "pi/90 * spot_radius_expression ^ 3"
+    },
+    local_functions =
+    {
+      blob =
+      {
+        parameters = {"input_scale", "output_scale"},
+        expression = "basis_noise{x = x, y = y, seed0 = map_seed, seed1 = 123, input_scale = input_scale, output_scale = output_scale}"
+      }
+    }
+  },
+  {
+    type = "noise-function",
+    name = "enemy_autoplace_base2",
+    parameters = {"distance_factor", "seed"},
+    expression = "random_penalty{x = x + seed,\z
+                                 y = y,\z
+                                 source = min(enemy_base_probability2 * max(0, 1 + 0.0025 * distance_factor * (-312 * distance_factor - starting_area_radius + distance)),\z
+                                              0.24 + distance_factor * 0.06),\z
+                                 amplitude = 0.2}"
+  },
+  {
+	  type = "autoplace-control",
+	  name = "old-enemy-base",
+	  order = "c-z",
+	  category = "enemy",
+	}
 })
+
+
+
+if data.raw.planet["nauvis"] then
+	if data.raw.planet["nauvis"].map_gen_settings then
+		if data.raw.planet["nauvis"].map_gen_settings.autoplace_controls then
+			data.raw.planet["nauvis"].map_gen_settings.autoplace_controls["old-enemy-base"] = {}
+		end
+	end
+end
+
+--[[if data.raw["map-gen-presets"] and data.raw["map-gen-presets"]["default"] then
+	if data.raw["map-gen-presets"]["default"].default then
+		if not data.raw["map-gen-presets"]["default"].default.basic_settings then
+			data.raw["map-gen-presets"]["default"].default.basic_settings = {}
+		end
+		if not data.raw["map-gen-presets"]["default"].default.basic_settings.autoplace_controls then
+			data.raw["map-gen-presets"]["default"].default.basic_settings.autoplace_controls = {}
+		end
+		data.raw["map-gen-presets"]["default"].default.basic_settings.autoplace_controls["old-enemy-base"] = { frequency = "none", size = "none"}
+	end
+end]]
+
