@@ -1,4 +1,4 @@
-local anim_speed = 0.1 --original 0.18
+local anim_speed = 0.18 --original 0.18
 
 
 function old_spawner_idle_animation(variation, tint, mask)

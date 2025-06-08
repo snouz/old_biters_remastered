@@ -303,13 +303,17 @@ function old_add_biter_die_animation(scale, tint1, tint2, corpse)
   corpse.time_before_shading_off = 4 * 60 * 60
   corpse.direction_shuffle = { { 1, 2, 3, 16 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } }
   corpse.shuffle_directions_at_frame = 0
-  corpse.final_render_layer = "lower-object-above-shadow"
+  --corpse.final_render_layer = "lower-object-above-shadow"
 
   corpse.ground_patch_render_layer = "decals" -- "transport-belt-integration"
   corpse.ground_patch_fade_in_delay = 1 / 0.02 --  in ticks; 1/dying_speed to delay the animation until dying animation finishes
   corpse.ground_patch_fade_in_speed = 0.002
   corpse.ground_patch_fade_out_start = 50 * 60
   corpse.ground_patch_fade_out_duration = 20 * 60
+
+  corpse.final_render_layer = "remnants"
+  corpse.ground_patch_render_layer = "remnants"
+  corpse.use_decay_layer = true
 
   local a = 1
   local d = 0.9
@@ -344,13 +348,16 @@ local function old_add_spitter_die_animation(scale, tint1, corpse)
   corpse.time_before_shading_off = 4 * 60 * 60
   corpse.direction_shuffle = { { 1, 2, 3, 16 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } }
   corpse.shuffle_directions_at_frame = 0
-  corpse.final_render_layer = "lower-object-above-shadow"
+  --corpse.final_render_layer = "lower-object-above-shadow"
 
   corpse.ground_patch_render_layer = "decals" -- "transport-belt-integration"
   corpse.ground_patch_fade_in_delay = 1 / 0.02 --  in ticks; 1/dying_speed to delay the animation until dying animation finishes
   corpse.ground_patch_fade_in_speed = 0.002
   corpse.ground_patch_fade_out_start = 50 * 60
   corpse.ground_patch_fade_out_duration = 20 * 60
+  corpse.final_render_layer = "remnants"
+  corpse.ground_patch_render_layer = "remnants"
+  corpse.use_decay_layer = true
 
   local a = 1
   local d = 0.9
@@ -397,7 +404,7 @@ local function old_worm_corpse(name, scale, tint, order_char)
   tab.order = "c[corpse]-c[worm]-".. order_char .."[" .. name .. "]"
   tab.flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"}
   tab.hidden_in_factoriopedia = true
-  tab.final_render_layer = "lower-object-above-shadow"
+  --tab.final_render_layer = "lower-object-above-shadow"
   tab.animation = old_worm_die_animation(scale, tint)
   tab.decay_animation = old_worm_decay_animation(scale)
   tab.decay_frame_transition_duration = 6 * 60
@@ -1326,7 +1333,7 @@ data:extend(
     --time_before_removed = 8 * 60 * 60,
     --time_before_shading_off = 1 * 60 * 60,
     --decay_frame_transition_duration = 8 * 60,
-    use_decay_layer = true,
+    --use_decay_layer = true,
 
     dying_speed = 0.015,
     time_before_removed = 4 * 60 * 60,
@@ -1368,7 +1375,7 @@ data:extend(
     --time_before_removed = 8 * 60 * 60,
     --time_before_shading_off = 1 * 60 * 60,
     --decay_frame_transition_duration = 8 * 60,
-    use_decay_layer = true,
+    --use_decay_layer = true,
 
     dying_speed = 0.015,
     time_before_removed = 4 * 60 * 60,

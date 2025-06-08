@@ -3,6 +3,7 @@ Version: 1.1.0
 Date: 2025-06-08
   Graphics:
     - Reworked worm render, ground integration and shadows
+    - Reworked spawner color, contrast, layer and animation
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2025-06-08
