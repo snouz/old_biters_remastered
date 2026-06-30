@@ -10,7 +10,15 @@ require ("prototypes.old-worm-animations")
 require ("prototypes.old-spawner-animation")
 
 local enemy_autoplace = require ("prototypes.enemy-autoplace")
-local biter_ai_settings = require ("__base__.prototypes.entity.biter-ai-settings")
+--local biter_ai_settings = require ("__base__.prototypes.entity.biter-ai-settings")
+local biter_ai_settings = function(size_in_group)
+  return
+  {
+    destroy_when_commands_fail = true,
+    allow_try_return_to_spawner = true,
+    size_in_group = size_in_group
+  }
+end
 local sounds = require ("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local simulations = require("__base__.prototypes.factoriopedia-simulations")
@@ -479,7 +487,7 @@ data:extend(
     run_animation = old_biterrunanimation(old_small_biter_scale, old_small_biter_tint1, old_small_biter_tint2),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.biter_walk(0, 0.3),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(1),
     water_reflection = biter_water_reflection(old_small_biter_scale)
   },
 
@@ -537,7 +545,7 @@ data:extend(
     run_animation = old_biterrunanimation(old_medium_biter_scale, old_medium_biter_tint1, old_medium_biter_tint2),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.biter_walk(0.1, 0.4),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(1),
     water_reflection = biter_water_reflection(old_medium_biter_scale)
   },
 
@@ -596,7 +604,7 @@ data:extend(
     run_animation = old_biterrunanimation(old_big_biter_scale, old_big_biter_tint1, old_big_biter_tint2),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.biter_walk_big(0.6, 0.7),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(2),
     water_reflection = biter_water_reflection(old_big_biter_scale)
   },
 
@@ -656,7 +664,7 @@ data:extend(
     run_animation = old_biterrunanimation(old_behemoth_biter_scale, old_behemoth_biter_tint1, old_behemoth_biter_tint2),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.biter_walk_big(0.6, 0.8),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(3),
     water_reflection = biter_water_reflection(old_behemoth_biter_scale)
   },
 
@@ -779,7 +787,7 @@ data:extend(
     run_animation = old_spitterrunanimation(old_small_spitter_scale, old_small_spitter_tint),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.spitter_walk(0, 0.3),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(1),
     water_reflection = spitter_water_reflection(old_small_spitter_scale)
   },
 
@@ -835,7 +843,7 @@ data:extend(
     run_animation = old_spitterrunanimation(old_medium_spitter_scale, old_medium_spitter_tint),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.spitter_walk(0.1, 0.4),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(1),
     water_reflection = spitter_water_reflection(old_medium_spitter_scale)
   },
 
@@ -892,7 +900,7 @@ data:extend(
     run_animation = old_spitterrunanimation(old_big_spitter_scale, old_big_spitter_tint),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.spitter_walk_big(0.2, 0.5),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(2),
     water_reflection = spitter_water_reflection(old_big_spitter_scale)
   },
 
@@ -948,7 +956,7 @@ data:extend(
     run_animation = old_spitterrunanimation(old_behemoth_spitter_scale, old_behemoth_spitter_tint),
     running_sound_animation_positions = {2,},
     walking_sound = sounds.spitter_walk_big(0.3, 0.6),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(3),
     water_reflection = spitter_water_reflection(old_behemoth_spitter_scale)
   },
 
@@ -1033,10 +1041,11 @@ data:extend(
     loot =
     {
       {
-        count_max = 10,
-        count_min = 2,
-        item = "alien-artifact",
-        probability = 1
+        amount_max = 10,
+        amount_min = 2,
+        type = "item",
+        name = "alien-artifact",
+        independent_probability = 1
       }
     },
     resistances =
@@ -1180,10 +1189,11 @@ data:extend(
     loot =
     {
       {
-        count_max = 15,
-        count_min = 5,
-        item = "alien-artifact",
-        probability = 1
+        amount_max = 15,
+        amount_min = 5,
+        type = "item",
+        name = "alien-artifact",
+        independent_probability = 1
       }
     },
     working_sound =
